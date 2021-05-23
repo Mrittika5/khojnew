@@ -9,26 +9,21 @@ router.get("/home",isLoggedIn,(req,res)=>{
 
 })
 
-router.post("/home", (req,res)=>{
+router.post("/home", async(req,res)=>{
 
   const localISOTime = req.body.date_time
   const date_time=localISOTime.replace(/T/, ' ').replace(/\..+/, '')
+  try{
+    const data= await Input.updateOne(
+  	  { user_id : req.user._id },
+  	  { $push: { payload: {timestamp:date_time,	input_values:req.body.sorted_arr}} },
+  	  { upsert: true } )
+    res.status(204).send()
 
-	Input.updateOne(
-	  { user_id : req.user._id },
-	  { $push: { payload: {timestamp:date_time,
-				input_values:req.body.sorted_arr}} },
-	  { upsert: true } )
-
-		.then((data)=>{
-
-	    })
-		.catch ((err)=> {
+  }catch (err) {
 		   console.log(err);
-		})
-
-  res.status(204).send()
-
+       res.send(err)
+		}
 
 })
 

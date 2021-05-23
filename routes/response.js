@@ -6,56 +6,54 @@ const querystring = require('querystring')
 const Input= require ('../models/input.js')
 const isLoggedIn=require('../utils/isloggedin.js')
 
-router.get("/GetAllInputValues",isLoggedIn, (req,res)=>{
+router.get("/GetAllInputValues",isLoggedIn, async(req,res)=>{
 //start_datetime, end_datetime, user_id
 const start = req.query.start_datetime;
 const end = req.query.end_datetime;
 const userId=mongoose.Types.ObjectId(req.query.user_id)
-Input.aggregate([
-  {
-     "$match" : {
-       "user_id": userId,
-       "payload" : { "$elemMatch" :
-       { "$and" : [{ "timestamp": {$gte: start, $lte: end } } ]}}
-                 }
-  },
+try{
+  const data= await Input.aggregate([
+    {
+       "$match" : {
+         "user_id": userId,
+         "payload" : { "$elemMatch" :
+         { "$and" : [{ "timestamp": {$gte: start, $lte: end } } ]}}
+                   }
+    },
 
-  {
-     "$project" : {
-       "status": "success",
-       "_id":0,
-       "user_id" : "$user_id",
-       "payload" : {
+    {
+       "$project" : {
+         "status": "success",
+         "_id":0,
+         "user_id" : "$user_id",
+         "payload" : {
 
-       "$filter" : {
+         "$filter" : {
 
-         "input" : "$payload",
-         "as" : "payload",
-         "cond" : {
-          "$and" : [{ $gte: [ "$$payload.timestamp",start ] },{ $lte: [ "$$payload.timestamp",end ] } ]
+           "input" : "$payload",
+           "as" : "payload",
+           "cond" : {
+            "$and" : [{ $gte: [ "$$payload.timestamp",start ] },{ $lte: [ "$$payload.timestamp",end ] } ]
+           }
+          }
          }
-        }
        }
-     }
+    }
+
+  ]).exec()
+
+  if(data.length>0){
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(data, null, 2))
   }
 
-])
-.exec()
-.then((data)=>{
-    if(data.length>0){
-      res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify(data, null, 2))
-    }
+  else{
+    res.send("Sorry No Results Found")
+  }
 
-    else{
-      res.send("Sorry No Results Found")
-    }
-
-
-})
-.catch((err)=>{
+}catch(err){
     res.send(err)
-})
+}
 
 })
 
