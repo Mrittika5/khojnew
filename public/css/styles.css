@@ -1,0 +1,56 @@
+
+body{
+	margin:0;
+	
+	margin: 5px, 5px, 5px, 5px;
+}
+.container{
+
+    
+	display: flex;
+	
+	flex-wrap:wrap;
+	justify-content: center;
+    
+	
+	
+	padding-top:1.5rem;
+		
+}
+.card{
+	width: 400px;
+	border-color:none;
+	margin-top:40px;
+	
+}
+
+.login-form{
+	padding: 5px 5px 5px 5px;
+	max-width:400px;
+	
+	
+	
+}
+
+.alert{
+	text-align:center;
+	width: 350px;
+	height:60px;
+
+	
+	margin: 0 auto;
+	margin-top :10px;
+}
+#home{
+	border-color:darkcyan;
+	border-width:5px;
+	
+}
+
+
+
+
+
+
+
+

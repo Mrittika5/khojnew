@@ -1,0 +1,43 @@
+<%- include("partials/header")%>
+
+
+<div class="text-center  fs-1 text">
+			Select the start datetime and end datetime to find API response
+	</div>
+
+<div class="container">
+	
+<div class="card shadow-lg p-3 mb-5 bg-body rounded" id="home">
+	
+	   <div class="login-form">
+		
+			
+		   <form action="/home/search" method="POST">
+	<label for="start_time">Start Datetime:</label>
+
+<input type="datetime-local"  class="form-control" step="1" required
+       name="start_time"><br>
+<label for="end_time">End Datetime</label>
+<input type="datetime-local"  class="form-control" step="1" required
+       name="end_time"><br> 
+			 <div class="d-grid gap-2">
+				  <button  class="btn btn-success" type="submit" id="add" >
+				 Submit
+			 </button>
+				
+                    
+               </div>
+</form>
+	   </div>
+
+	</div>
+	
+
+</div>
+
+	
+
+
+<%- include("partials/footer")%>
+
+
