@@ -11,10 +11,6 @@ router.get("/GetAllInputValues",isLoggedIn, (req,res)=>{
 const start = req.query.start_datetime;
 const end = req.query.end_datetime;
 const userId=mongoose.Types.ObjectId(req.query.user_id)
-console.log("hoise")
-console.log(start)
-console.log(end)
-
 Input.aggregate([
   {
      "$match" : {

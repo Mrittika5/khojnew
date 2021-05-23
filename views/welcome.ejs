@@ -1,28 +1,13 @@
-<%- include("partials/header")%>
+	<%- include("partials/header")%>
 
-
-<div class="text-center  fs-1 text" style="color:#0a4d73;">
-	Welcome!!!
-
+	<div class="text-center  fs-1 text" style="color:#0a4d73;">
+		Welcome!!!
 	</div>
+
 	<% if(!user)  {   %>
+		<div class="text-center  fs-3 text" >
+		   You need to <a  href="/login">Login</a> or <a href="/signup">Signup</a> to continue
+		</div>
+	<% } %>
 
-    <div class="text-center  fs-3 text" >
-
-      You need to <a  href="/login">Login</a> or <a href="/signup">Signup</a> to continue
-      </div>
-
-    <% } %>
-
-
-
-
-
-
-
-
-
-
-
-
-<%- include("partials/footer")%>
+	<%- include("partials/footer")%>

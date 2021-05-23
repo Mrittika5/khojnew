@@ -12,8 +12,6 @@ router.post("/search",(req,res)=>{
 
 	const start= req.body.start_time.replace(/T/, ' ').replace(/\..+/, '')
 	const end= req.body.end_time.replace(/T/, ' ').replace(/\..+/, '')
-
-
   //start_datetime, end_datetime, user_id
 	res.redirect(`/GetAllInputValues/?start_datetime=${start}&end_datetime=${end}&user_id=${req.user._id}`)
 

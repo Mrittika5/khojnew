@@ -8,12 +8,11 @@ router.get("/home",isLoggedIn,(req,res)=>{
    res.render("home.ejs", {check})
 
 })
+
 router.post("/home", (req,res)=>{
 
-    const localISOTime = req.body.date_time
-    const date_time=localISOTime.replace(/T/, ' ').replace(/\..+/, '')
-
-
+  const localISOTime = req.body.date_time
+  const date_time=localISOTime.replace(/T/, ' ').replace(/\..+/, '')
 
 	Input.updateOne(
 	  { user_id : req.user._id },
@@ -22,14 +21,13 @@ router.post("/home", (req,res)=>{
 	  { upsert: true } )
 
 		.then((data)=>{
-		  
+
 	    })
 		.catch ((err)=> {
 		   console.log(err);
 		})
 
-
-	res.status(204).send()
+  res.status(204).send()
 
 
 })
