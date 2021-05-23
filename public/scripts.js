@@ -1,7 +1,7 @@
 
 let arr,check;
 
-const  sortAarry= ()=> {
+function sortAarry () {
   const str = document.getElementById("values");
 	console.log(str)
   arr= str.value.split(',').map((item)=> {
@@ -35,7 +35,7 @@ const binarySearch =  (arr, x)=> {
     return false;
 }
 
-const Check= ()=>{
+function Check (){
 	let x=document.getElementById("item")
   item=parseInt(x.value,10)
 
@@ -49,7 +49,7 @@ const Check= ()=>{
 }
 
 
-const show= function(){
+ function show(){
 	const tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
   const localISOTime = (new Date(Date.now() - tzoffset)).toISOString();
 	document.getElementById("date_time").value=localISOTime
