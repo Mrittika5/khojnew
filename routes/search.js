@@ -10,12 +10,12 @@ router.get("/search",isLoggedIn,(req,res)=>{
 })
 router.post("/search",(req,res)=>{
 
-	const start= new Date(req.body.start_time).toISOString().replace(/T/, ' ').replace(/\..+/, '')
-	const end= new Date(req.body.end_time).toISOString().replace(/T/, ' ').replace(/\..+/, '')
-	
+	const start= req.body.start_time.replace(/T/, ' ').replace(/\..+/, '')
+	const end= req.body.end_time.replace(/T/, ' ').replace(/\..+/, '')
+
 
   //start_datetime, end_datetime, user_id
-	res.redirect(`/search/response/?start_datetime=${start}&end_datetime=${end}&user_id=${req.user._id}`)
+	res.redirect(`/GetAllInputValues/?start_datetime=${start}&end_datetime=${end}&user_id=${req.user._id}`)
 
 })
 

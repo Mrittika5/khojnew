@@ -12,7 +12,7 @@ router.post("/home", (req,res)=>{
 
     const localISOTime = req.body.date_time
     const date_time=localISOTime.replace(/T/, ' ').replace(/\..+/, '')
-    console.log(date_time)
+
 
 
 	Input.updateOne(
@@ -22,7 +22,7 @@ router.post("/home", (req,res)=>{
 	  { upsert: true } )
 
 		.then((data)=>{
-		console.log("successfully updated")
+		  
 	    })
 		.catch ((err)=> {
 		   console.log(err);

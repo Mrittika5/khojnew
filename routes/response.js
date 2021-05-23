@@ -6,11 +6,14 @@ const querystring = require('querystring')
 const Input= require ('../models/input.js')
 const isLoggedIn=require('../utils/isloggedin.js')
 
-router.get("/search/response",isLoggedIn, (req,res)=>{
+router.get("/GetAllInputValues",isLoggedIn, (req,res)=>{
 //start_datetime, end_datetime, user_id
 const start = req.query.start_datetime;
 const end = req.query.end_datetime;
 const userId=mongoose.Types.ObjectId(req.query.user_id)
+console.log("hoise")
+console.log(start)
+console.log(end)
 
 Input.aggregate([
   {
@@ -28,7 +31,7 @@ Input.aggregate([
        "user_id" : "$user_id",
        "payload" : {
 
-        "$filter" : {
+       "$filter" : {
 
          "input" : "$payload",
          "as" : "payload",
@@ -43,8 +46,16 @@ Input.aggregate([
 ])
 .exec()
 .then((data)=>{
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(data, null, 2))
+    if(data.length>0){
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify(data, null, 2))
+    }
+
+    else{
+      res.send("Sorry No Results Found")
+    }
+
+
 })
 .catch((err)=>{
     res.send(err)
