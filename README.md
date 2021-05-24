@@ -25,7 +25,7 @@ you should be able to access the website now
 2. In case you want to manually type the API address  ,the API is defined as:
 /GetAllInputValues/?start_datetime=&end_datetime=&user_id=
 
-you have to put value for three API query parameters : start_datetime, end_datetime and userId. You can access your user ID by going to the database directly or for the ease of access , I have included the user_id in the root directory's HTML page. Once you log in you can go to http://localhost:3000/ and you can access you user_id from there.
+you have to put value for three API query parameters : start_datetime, end_datetime and userId. You can access your user ID by going to the database directly or for the ease of access , I have included the user_id in the root directory's HTML page. Once you log in you can go to http://localhost:3000/ and you can access your user_id from there.
 
 So lets say your user_id is 60aa533f and you want to find all the input values between 24/05/2021 4 pm to 25/05/2021 1am
 you will type :
