@@ -2,7 +2,7 @@ const express= require("express")
 const router= express.Router()
 const Input= require ('../models/input.js')
 const isLoggedIn=require('../utils/isloggedin.js')
-
+//search route
 router.get("/search",isLoggedIn,(req,res)=>{
 
   res.render("search.ejs")

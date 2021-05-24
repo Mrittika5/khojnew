@@ -3,7 +3,9 @@ const passport=require('passport')
 const router= express.Router()
 const User= require("../models/user.js")
 const isLoggedIn=require('../utils/isloggedin.js')
-
+//=======================================
+//Signup Route
+//=====================================
 router.get("/signup", (req,res)=>{
 	res.render("signup.ejs")
 })
@@ -22,7 +24,6 @@ router.post("/signup",async (req,res)=>{
 		res.redirect("/home");
 	})
 
-
 	}
 	catch(err){
 		console.log(err)
@@ -32,13 +33,16 @@ router.post("/signup",async (req,res)=>{
 	}
 })
 
-
+//===================================================================
+//login  route
+//===============================================================
 router.get("/login",(req,res)=>{
    res.render("login.ejs",{message: req.flash('message')})
 })
 
 
 router.post("/login", passport.authenticate('local',{
+ 
 	successRedirect:'/home',
 	failureRedirect:'/login',
 	failureFlash : true ,
@@ -46,7 +50,9 @@ router.post("/login", passport.authenticate('local',{
 })
 
 )
-
+//==================
+//logout route
+//===================
 router.get("/logout",(req,res)=>{
 	req.logout();
 	req.flash("success","logged you out")

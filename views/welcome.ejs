@@ -8,6 +8,14 @@
 		<div class="text-center  fs-3 text" >
 		   You need to <a  href="/login">Login</a> or <a href="/signup">Signup</a> to continue
 		</div>
-	<% } %>
+	<% } else{ %>
+
+		<div class="text-center  fs-3 text" >
+ 		   Hey, <%=user.username%><br>
+			 you user ID is <%=user._id%>
+ 		</div>
+
+
+<%	} %>
 
 	<%- include("partials/footer")%>
