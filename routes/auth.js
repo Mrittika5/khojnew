@@ -27,8 +27,16 @@ router.post("/signup",async (req,res)=>{
 	}
 	catch(err){
 		console.log(err)
-		req.flash("error", `Username already exists`)
-		res.redirect("/signup")
+
+		if(err.keyPattern){
+			req.flash("error", `Email already exists`)
+		}
+    else{
+			req.flash("error", `Username already exists`)
+		}
+			res.redirect("/signup")
+
+
 
 	}
 })
@@ -42,10 +50,10 @@ router.get("/login",(req,res)=>{
 
 
 router.post("/login", passport.authenticate('local',{
- 
+
 	successRedirect:'/home',
 	failureRedirect:'/login',
-	failureFlash : true ,
+	failureFlash : true
 
 })
 
