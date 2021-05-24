@@ -2,7 +2,11 @@ Hello , this website is deployed at Heroku and you can access it by going to the
 ======================================
 To run this application
 ====================================
-1. This application is built using Node js , MongoDb Atlas, Express . You need to have latest version of Node installed in your computer to run it. If Node is not installed  you can go to this link and download and install it:https://nodejs.org/en/download/  
+1. This application is built using Node js , MongoDb Atlas, Express .
+ You need to have latest version of Node installed in your computer to run it. You can check weather you have Node by going to command prompt and typing: node -v
+ you should see the Node js version if you have node js in your PC
+
+If Node is not installed  you can go to this link and download and install it:https://nodejs.org/en/download/  
 
 2.Once Nodejs is installed , Unzip the project folder, and open terminal
 3. On terminal navigate to the root directory of this project which is named "Ami-Coding-Parina", and type : npm install
@@ -18,10 +22,10 @@ you should be able to access the website now
  //API endpoint access
  //==========================================================
 1. After login you can  click on the Search option on Navigation Bar. There you will get  date pickers for start and end datetime you can select it and click the search button , this will hit the API .
-2. In case you want to manually type the API ,the API is defined as:
+2. In case you want to manually type the API address  ,the API is defined as:
 /GetAllInputValues/?start_datetime=&end_datetime=&user_id=
 
-you have to put value for three API query parameters : start_datetime, end_datetime and userId. You can access your user ID by going to the database directly or for the ease of access , I have included the user_id in the root directory's HTML page. once you log in you can go to http://localhost:3000/ and you can access you user_id from there.
+you have to put value for three API query parameters : start_datetime, end_datetime and userId. You can access your user ID by going to the database directly or for the ease of access , I have included the user_id in the root directory's HTML page. Once you log in you can go to http://localhost:3000/ and you can access you user_id from there.
 
 So lets say your user_id is 60aa533f and you want to find you all the input values between 24/05/2021 4 pm to 25/05/2021 1am
 you will type :

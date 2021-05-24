@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 
 
 const inputSchema=new mongoose.Schema( {
-	"user_id":{
-
-			type:mongoose.Schema.Types.ObjectId,
-			ref:"User"
-		},
+	"user_id":String,
 	"payload":[
 		{   _id : false,
 			timestamp: String,
