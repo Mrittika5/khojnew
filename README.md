@@ -34,11 +34,4 @@ http://localhost:3000/GetAllInputValues/?start_datetime=2021-05-24 16:00:00&end_
 IMPORTANT: Please do not enclose any of the query parameters in single or double quote
 ********************************************************************************************
 
-//========================================
-//Database access
-//=======================================
-I have used mongodb's cloud platform and opened a account solely for this project. In case you want access the database directly follow the below steps:
-1.go to : https://www.mongodb.com/cloud/atlas1 and sign in using the following credentials(do not choose sign in with google, use sign in with email instead):
-       Email Address:amicodingparina@gmail.com
-       password: test12345#
-2. after sign in go to cluster>collection and you should find the database named Khoj
+ 
